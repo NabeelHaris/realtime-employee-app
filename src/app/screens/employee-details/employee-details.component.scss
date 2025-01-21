@@ -1,0 +1,13 @@
+.container-fluid {
+  min-height: 100vh;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  mat-form-field {
+    width: 100%;
+  }
+  mat-card {
+    margin-top: 100px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better visibility */
+  }
+}

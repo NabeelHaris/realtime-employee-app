@@ -1,0 +1,50 @@
+<div class="d-flex flex-column">
+    <div class="mt-5">
+        <button mat-flat-button color="primary" class="btn btn-primary position-absolute add-btn"
+            [routerLink]="['/employee/add-employee-details']">
+            <mat-icon class="plus-icon">add</mat-icon>
+        </button>
+    </div>
+
+    <!-- Employee Table -->
+    <div class="container mt-5" *ngIf="employeeList.length">
+        <div class="table-container" *ngIf="employeeList && employeeList.length > 0">
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let element of employeeList; let i = index">
+                        <td>{{ element.id }}</td>
+                        <td>{{ element.employeeName }}</td>
+                        <td>{{ element.role }}</td>
+                        <td>{{ element.startDate | date:'mediumDate' }}</td>
+                        <td>{{ element.endDate | date:'mediumDate' }}</td>
+
+                        <td>
+                            <button mat-icon-button [routerLink]="['/employee/edit-employee-details', element.id]">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="onDelete(element.id, i)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center position-relative main-conatiner mt-5"
+        *ngIf="!employeeList.length">
+        <div class="text-center">
+            <img src="../../../assets/images/employye.png" alt="Employee" class="img-fluid" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+
+.add-btn {
+    background-color: #0d8efd !important;
+    margin-left: 10px;
+}
+
+.cancel-btn{
+    background-color: #bbdfff4f !important;
+    color: #0d8efd !important;
+    border: none !important;
+}
+mat-icon {
+    color: #0d8efd !important;
+}
+.mat-mdc-icon-button svg{
+    color: #0d8efd !important;
+}
