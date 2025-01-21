@@ -19,6 +19,7 @@ import { ScreenService } from '../screen.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/interfaces/employee';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { HeaderComponent } from 'src/app/ components/header/header.component';
 
 @Component({
   selector: 'app-employee-details',
@@ -35,7 +36,8 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HeaderComponent
   ],
   templateUrl: './employee-details.component.html',
   styleUrls: ['./employee-details.component.scss'],
@@ -45,6 +47,7 @@ export class EmployeeDetailsComponent {
   roles: string[] = ['Manager', 'Developer', 'Designer', 'Tester'];
   isEditMode = false;
   employeeId: any;
+  headerText = 'Add Employee Details';
 
   constructor(
     private fb: FormBuilder,
@@ -66,6 +69,7 @@ export class EmployeeDetailsComponent {
       if (this.employeeId) {
         this.getEmployeeById();
         this.isEditMode = true; // If `id` exists, it's edit mode
+        this.headerText = 'Edit Employee Details';
       }
     });
   }

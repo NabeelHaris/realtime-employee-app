@@ -1,21 +1,24 @@
-.main-conatiner {
+.main-container {
     // background: #f1f1f1;
     height: 90vh;
     overflow: hidden;
 }
-// .add-btn {
-//     bottom: 20px;
-//     right: 20px;
-//     background-color: #0d8efd;
-//     mat-icon {
-//         color: white !important;
-//         margin: unset !important;
-//     }
-// }
+.responsive-img {
+  max-width: 100%; /* Ensures the image does not exceed the parent's width */
+  height: auto; /* Maintains aspect ratio */
+}
 
-// table {
-//     width: 100%;
-//   }
+@media (max-width: 576px) { /* For small screens */
+  .responsive-img {
+    max-width: 90%; /* Slightly smaller image */
+  }
+}
+
+@media (min-width: 768px) { /* For medium to large screens */
+  .responsive-img {
+    max-width: 70%; /* Adjust image size for larger screens */
+  }
+}
 /* Table Container */
 .table-container {
   width: 100%;
@@ -90,5 +93,6 @@
   mat-icon {
     color: white !important;
     margin: unset !important;
+    font-size: 20px;
   }
 }

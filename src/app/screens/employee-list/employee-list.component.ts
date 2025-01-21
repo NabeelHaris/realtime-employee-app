@@ -7,6 +7,7 @@ import { Employee } from 'src/app/interfaces/employee';
 import {MatButtonModule} from '@angular/material/button';
 import * as localforage from 'localforage';
 import { MatTableModule } from '@angular/material/table';
+import { HeaderComponent } from 'src/app/ components/header/header.component';
 @Component({
   selector: 'app-employee-list',
   standalone: true,
@@ -15,7 +16,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     RouterLink,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    HeaderComponent
   ],
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.scss'],
