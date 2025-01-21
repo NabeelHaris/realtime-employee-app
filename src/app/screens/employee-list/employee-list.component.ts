@@ -17,7 +17,7 @@ import { HeaderComponent } from 'src/app/ components/header/header.component';
     RouterLink,
     MatTableModule,
     MatButtonModule,
-    HeaderComponent
+    HeaderComponent 
   ],
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.scss'],

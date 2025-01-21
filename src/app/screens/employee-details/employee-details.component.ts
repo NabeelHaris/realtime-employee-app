@@ -74,7 +74,7 @@ export class EmployeeDetailsComponent {
     });
   }
 
-  private getEmployeeById() {
+  private getEmployeeById() { 
     try {
       this.screenService
         .getEmployeeById(this.employeeId)
