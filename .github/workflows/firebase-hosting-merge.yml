@@ -1,4 +1,3 @@
-# Deploy to Firebase Hosting on merge
 name: Deploy to Firebase Hosting on merge
 on:
   push:
@@ -9,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Ensure the correct Node.js version
-      
+          node-version: '18' # Updated to Node.js 18.x for compatibility
+
       - name: Install Dependencies
         run: npm install
 
