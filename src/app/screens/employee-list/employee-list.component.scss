@@ -7,7 +7,6 @@
   max-width: 60%; /* Ensures the image does not exceed the parent's width */
   height: auto; /* Maintains aspect ratio */
 }
-
 /* Portrait mode */
 @media (orientation: portrait) and (max-width: 576px) {
   .responsive-img {
@@ -22,17 +21,27 @@
 }
 
 /* Landscape mode */
-@media (orientation: landscape) and (max-width: 576px) {
+/* For 608x322 landscape screens */
+@media (orientation: landscape) and (max-width: 608px) and (max-height: 322px) {
   .responsive-img {
-    max-width: 80%; /* Slightly larger image for small landscape screens */
+    max-width: 40%; /* Smaller image for 608x322 landscape screens */
   }
 }
 
+/* For other small landscape screens */
+@media (orientation: landscape) and (max-width: 576px) {
+  .responsive-img {
+    max-width: 50%; /* Slightly larger image for small landscape screens */
+  }
+}
+
+/* For medium to large landscape screens */
 @media (orientation: landscape) and (min-width: 768px) {
   .responsive-img {
     max-width: 60%; /* Adjust image size for larger landscape screens */
   }
 }
+
 
 /* Table Container */
 .table-container {
