@@ -1,24 +1,39 @@
 .main-container {
     // background: #f1f1f1;
-    height: 90vh;
+    height: 65vh;
     overflow: hidden;
 }
 .responsive-img {
-  max-width: 100%; /* Ensures the image does not exceed the parent's width */
+  max-width: 60%; /* Ensures the image does not exceed the parent's width */
   height: auto; /* Maintains aspect ratio */
 }
 
-@media (max-width: 576px) { /* For small screens */
+/* Portrait mode */
+@media (orientation: portrait) and (max-width: 576px) {
   .responsive-img {
-    max-width: 90%; /* Slightly smaller image */
+    max-width: 90%; /* Slightly smaller image for small portrait screens */
   }
 }
 
-@media (min-width: 768px) { /* For medium to large screens */
+@media (orientation: portrait) and (min-width: 768px) {
   .responsive-img {
-    max-width: 70%; /* Adjust image size for larger screens */
+    max-width: 70%; /* Adjust image size for larger portrait screens */
   }
 }
+
+/* Landscape mode */
+@media (orientation: landscape) and (max-width: 576px) {
+  .responsive-img {
+    max-width: 80%; /* Slightly larger image for small landscape screens */
+  }
+}
+
+@media (orientation: landscape) and (min-width: 768px) {
+  .responsive-img {
+    max-width: 60%; /* Adjust image size for larger landscape screens */
+  }
+}
+
 /* Table Container */
 .table-container {
   width: 100%;
