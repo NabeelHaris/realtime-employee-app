@@ -20,11 +20,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/interfaces/employee';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { HeaderComponent } from 'src/app/ components/header/header.component';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { CalendardialogComponent } from 'src/app/ components/calendardialog/calendardialog.component';
 
 @Component({
   selector: 'app-employee-details',
   standalone: true,
   imports: [
+    HeaderComponent,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -37,7 +40,7 @@ import { HeaderComponent } from 'src/app/ components/header/header.component';
     MatIconModule,
     MatCardModule,
     MatSnackBarModule,
-    HeaderComponent
+    MatDialogModule
   ],
   templateUrl: './employee-details.component.html',
   styleUrls: ['./employee-details.component.scss'],
@@ -48,13 +51,16 @@ export class EmployeeDetailsComponent {
   isEditMode = false;
   employeeId: any;
   headerText = 'Add Employee Details';
+  selectedDate: Date | null = null;
+  endDate: Date | null = null;
 
   constructor(
     private fb: FormBuilder,
     private screenService: ScreenService,
     private router: Router,
     private route: ActivatedRoute,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -79,14 +85,37 @@ export class EmployeeDetailsComponent {
       this.screenService
         .getEmployeeById(this.employeeId)
         .then((res) => {
+          console.log("res:", res);
+          
           if (res) {
             this.employeeForm.patchValue(res);
+            this.selectedDate = res.startDate;
+            this.endDate = res.endDate;
           }
         })
         .catch((error) => {
           console.log('error:', error);
         });
     } catch (error) {}
+  }
+
+  openCalendar(type: 'start' | 'end') {
+    const dialogRef = this.dialog.open(CalendardialogComponent, {
+      width: '400px',
+      data: { date: type === 'start' ? this.selectedDate : this.endDate },
+    });
+
+    dialogRef.afterClosed().subscribe((result: Date | null) => {
+      if (result) {
+        if (type === 'start') {
+          this.selectedDate = result;
+          this.employeeForm.get('startDate')?.setValue(result);
+        } else {
+          this.endDate = result;
+          this.employeeForm.get('endDate')?.setValue(result);
+        }
+      }
+    });
   }
 
   onSubmit(): void {

@@ -40,7 +40,28 @@
 
             <!-- Date Range -->
             <div class="row g-3 align-items-center">
-              <!-- Start Date -->
+              <!-- Start Date Input -->
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Start Date</mat-label>
+                  <mat-icon matPrefix>calendar_today</mat-icon>
+                  <input matInput placeholder="Select Start Date" formControlName="startDate"
+                    [value]="selectedDate | date: 'dd MMM yyyy'" (click)="openCalendar('start')" readonly />
+                </mat-form-field>
+              </div>
+
+              <!-- End Date Input -->
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>End Date</mat-label>
+                  <mat-icon matPrefix>calendar_today</mat-icon>
+                  <input matInput placeholder="Select End Date" formControlName="endDate"
+                    [value]="endDate | date: 'dd MMM yyyy'" (click)="openCalendar('end')" readonly />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- <div class="row g-3 align-items-center">
               <div class="col-lg-6 col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="w-100">
                   <mat-label>Start Date</mat-label>
@@ -50,24 +71,15 @@
                   <mat-datepicker #startDatePicker></mat-datepicker>
                 </mat-form-field>
               </div>
-
-              <!-- Arrow Separator -->
-              <!-- <div class="col-auto d-none d-lg-flex justify-content-center">
-                  <span>→</span>
-                </div> -->
-
-              <!-- End Date -->
               <div class="col-lg-6 col-md-6 col-sm-12">
                 <mat-form-field appearance="outline" class="w-100">
                   <mat-label>End Date</mat-label>
-                  <!-- <mat-icon matPrefix>calendar_today</mat-icon> -->
                   <mat-datepicker-toggle matPrefix [for]="endDatePicker"></mat-datepicker-toggle>
                   <input matInput [matDatepicker]="endDatePicker" formControlName="endDate" placeholder="End Date" (focus)="endDatePicker.open()"/>
-                  <!-- <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle> -->
                   <mat-datepicker #endDatePicker></mat-datepicker>
                 </mat-form-field>
               </div>
-            </div>
+            </div> -->
 
             <!-- Buttons -->
             <div class="row mt-4">
@@ -86,4 +98,4 @@
       </div>
     </mat-card-content>
   </mat-card>
-</div> 
+</div>

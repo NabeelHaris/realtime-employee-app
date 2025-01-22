@@ -1,0 +1,30 @@
+.custom-button {
+  background-color: #15c8a0 !important; /* Replace with your desired color */
+  color: white !important;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.calendar-container {
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+}
+.selected-date-field {
+    border: none !important;
+}
+.selected {
+    background-color: #0d8efd !important;
+    color: white;
+}
+.not-selected {
+    background-color: #bbdfff4f !important;
+    color: #0d8efd !important;
+    border: none;
+}

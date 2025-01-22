@@ -1,0 +1,52 @@
+<div class="container calendar-container">
+    <!-- Quick Actions Row -->
+    <div class="row mb-3 quick-actions">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mb-2">
+            <button mat-stroked-button [ngClass]="selectedAction === 'today' ?'selected' : 'not-selected'"
+                (click)="setSelected('today')" class="w-100">
+                Today
+            </button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mb-2">
+            <button mat-stroked-button [ngClass]="selectedAction === 'nextMonday' ?'selected' : 'not-selected'"
+                (click)="setSelected('nextMonday')" class="w-100">
+                Next Monday
+            </button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mb-2">
+            <button mat-stroked-button [ngClass]="selectedAction === 'nextTuesday' ?'selected' : 'not-selected'"
+                (click)="setSelected('nextTuesday')" class="w-100">
+                Next Tuesday
+            </button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-6 mb-2">
+            <button mat-stroked-button [ngClass]="selectedAction === 'oneWeekLater' ?'selected' : 'not-selected'"
+                (click)="setSelected('oneWeekLater')" class="w-100">
+                After 1 week
+            </button>
+        </div>
+    </div>
+
+    <!-- Calendar Row -->
+    <div class="row mb-3">
+        <div class="col-12">
+            <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+        </div>
+    </div>
+
+    <!-- Actions Row -->
+    <div class="row actions">
+        <div class="col-12 col-md-6 mb-2 d-flex align-items-center">
+            <mat-icon class="me-2" *ngIf="selectedDate">calendar_today</mat-icon>
+            <span class="selected-date">{{ selectedDate | date: 'dd MMM yyyy' }}</span>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-end">
+            <button mat-stroked-button color="primary" class="cancel-btn" type="button" (click)="cancel()">
+                Cancel
+            </button>
+            <button mat-raised-button class="add-btn" color="primary" (click)="save()">
+                Save
+            </button>
+        </div>
+    </div>
+</div>
